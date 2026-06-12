@@ -1,31 +1,28 @@
 class Solution {
 public:
-   vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
-       long long actualSum = 0, actualSquareSum = 0;
-       long long n = grid.size();
-       long long N = n * n;
+    vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
+        vector<int> ans;
+        int n= grid.size();
+        unordered_map<int, int> mp;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                mp[grid[i][j]]++;
+            }
+        }
+  int repeated = -1;
+        int missing = -1;
 
-       for (int i = 0; i < n; ++i) {
-           for (int j = 0; j < n; ++j) {
-               int num = grid[i][j];
-               actualSum += num;
-               actualSquareSum += (long long)num * num;
-           }
-       }
+        for(int i = 1; i <= n * n; i++) {
 
-       long long expectedSum = (N * (N + 1)) / 2;
+            if(mp[i] == 2) {
+                repeated = i;
+            }
 
-       long long expectedSquareSum = (N * (N + 1) * (2 * N + 1)) / 6;
+            if(mp[i] == 0) {
+                missing = i;
+            }
+        }
 
-       long long sumDifference = actualSum - expectedSum;
-
-       long long squareSumDifference = actualSquareSum - expectedSquareSum;
-
-       long long sum_ab = squareSumDifference / sumDifference;
-
-       int repeated = (sum_ab + sumDifference) / 2;
-       int missing = (sum_ab - sumDifference) / 2;
-
-       return {repeated, missing};
-   }
+        return {repeated, missing};
+    }
 };
