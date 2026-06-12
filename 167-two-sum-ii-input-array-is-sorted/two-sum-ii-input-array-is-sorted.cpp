@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         int n=nums.size();
-        sort(nums.begin(),nums.end());
+       
         int left=0;
         
         int right=n-1;
@@ -22,9 +22,7 @@ public:
                 else{ 
                     right--;
                 }
-
             }
-        
     return ans;
     }
 };
