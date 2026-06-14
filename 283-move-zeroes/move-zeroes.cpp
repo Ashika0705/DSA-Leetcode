@@ -11,16 +11,13 @@ public:
                 right++;
             } 
 
-            else if(nums[right]!=0 && nums[left]==0) {
+            else {
                 swap(nums[left],nums[right]);
                 left++;
                 right++;
             }
 
-            else{
-                left++;
-                right++;
-            }
+        
         }
         
        
