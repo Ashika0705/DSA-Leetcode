@@ -17,6 +17,7 @@ public:
             maxsum=max(currsum,maxsum);
         }
 
-    return (double)maxsum / k;
+    double avg= (double)maxsum / k;
+    return avg;
     }
 };
