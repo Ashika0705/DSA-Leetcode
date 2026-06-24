@@ -1,23 +1,26 @@
 class Solution {
 public:
     int pivotIndex(vector<int>& nums) {
-        int n=nums.size();
-        vector<int> leftSum(n,0);
-        vector<int> rightSum(n,0);
 
-        for(int i=1;i<n;i++){
-            leftSum[i]=leftSum[i-1]+nums[i-1];
-        }
-        rightSum[n-1]=0;
-        for(int i=n-2;i>=0;i--){
-            rightSum[i]=rightSum[i+1]+nums[i+1];
+        int totalSum = 0;
+
+        for(int num : nums){
+            totalSum += num;
         }
 
-        for(int i=0;i<n;i++){
-            if(rightSum[i]==leftSum[i]){
-                    return i;
+        int leftSum = 0;
+
+        for(int i = 0; i < nums.size(); i++){
+
+            int rightSum = totalSum - leftSum - nums[i];
+
+            if(leftSum == rightSum){
+                return i;
             }
+
+            leftSum += nums[i];
         }
+
         return -1;
     }
 };
