@@ -4,17 +4,16 @@ public:
         int n = nums.size();
         vector<int> ans(n, 1);
 
-        int leftProduct = 1;
-        for(int i = 0; i < n; i++) {
-            ans[i] = leftProduct;
-            leftProduct *= nums[i];
+        //prefix
+        for(int i = 1; i < n; i++) {
+           ans[i]=ans[i-1]*nums[i-1];
         }
 
-        
-        int rightProduct = 1;
-        for(int i = n - 1; i >= 0; i--) {
-            ans[i] *= rightProduct;
-            rightProduct *= nums[i];
+        //suffix
+        int suffix = 1;
+        for(int i = n - 2; i >= 0; i--) {
+            suffix=suffix*nums[i+1];
+           ans[i]= ans[i]*suffix;
         }
 
         return ans;
