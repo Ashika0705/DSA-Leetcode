@@ -11,7 +11,7 @@ public:
             sum=sum+nums[right];
 
             
-            while(sum>target){
+            while(sum>=target){
                 len=right-left+1;
                 minm=min(minm,len);
                 sum=sum-nums[left];
@@ -19,10 +19,7 @@ public:
                 left++;
                 
             }
-            if(sum==target){
-                len=right-left+1;
-                minm=min(minm,len);
-            }
+            
         }
         if(minm==INT_MAX) return 0;
     return minm;  
