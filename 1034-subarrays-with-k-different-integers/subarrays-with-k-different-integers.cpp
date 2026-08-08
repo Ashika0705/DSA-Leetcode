@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int atMost(vector<int>& nums, int k) {
+    int atMost(vector <int> &nums, int k) {
         int n=nums.size();
         int count=0;
         int left=0;
