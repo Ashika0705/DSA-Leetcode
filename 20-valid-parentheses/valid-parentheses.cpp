@@ -13,10 +13,10 @@ public:
             else{
                 if(st.empty()) return false;
                 char ch=st.top();
-                st.pop();
+               
 
                 if(ch=='(' && s[i]==')' || ch=='{' && s[i]=='}' || ch=='[' && s[i]==']'){
-                    continue;
+                     st.pop();
                 }  
                 else return false;
             }
