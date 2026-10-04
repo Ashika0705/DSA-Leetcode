@@ -7,8 +7,7 @@ public:
         vector<int>dp(n);
         
         dp[start]=nums[start];
-        if(n==1) return nums[start];
-        if(n==2) return max(nums[start],nums[start+1]);
+        
         dp[start+1]=max(nums[start],nums[start+1]);
 
         for(int i=start+2;i<=end;i++){
